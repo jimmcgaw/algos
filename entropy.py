@@ -30,10 +30,6 @@ def compute_cross_entropy(ground_truth_values: list[float], predicted_values: li
     # update both dictionarys so we have key symmetry
     pred_probs_by_value.update({gt_key: 0 for gt_key in unique_gt_keys})
     gt_probs_by_value.update({pred_key: 0 for pred_key in unique_pred_keys})
-    H = 0
-    for val in gt_probs_by_value.keys():
-        H += -1 * gt_probs_by_value[val] * math.log(pred_probs_by_value[val])
-    return H
     return -sum(
         [
             gt_probs_by_value[val] * math.log(pred_probs_by_value[val])
