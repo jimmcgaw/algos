@@ -189,6 +189,27 @@ class LinkedList:
 
         return merged
     
+    def get_mth_to_last_element(self, m: int):
+        """Given a postive int m, get the element that is m steps before
+        the end of the list.
+
+        l = length of list; n + m = l;
+        If l < m, returns the head element.
+        """
+        if self.is_empty():
+            return self.head
+        
+        # two pointers, one to traverse and another that trails by M elements.
+        mth_to_last = self.head
+        current = self.head
+        nth_element = 1
+        while current is not None:
+            if nth_element > m:
+                mth_to_last = mth_to_last.next
+            current = current.next
+            nth_element += 1
+        return mth_to_last
+    
     def sort(self):
         """TODO: Sort the list in place using MergeSort"""
         pass

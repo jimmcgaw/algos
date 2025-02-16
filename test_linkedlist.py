@@ -160,6 +160,13 @@ class TestLinkedList:
         linked.insert_at_tail(node=Node(100))
         assert not linked.is_palindrome()
 
+    def test_mth_to_last_element(self):
+        linked = LinkedList()
+        for i in range(1, 31):
+            linked.insert_at_tail(node=Node(data=i))
+        node: Node = linked.get_mth_to_last_element(5)
+        assert node.data == 26
+
     def test_merge_sorted_lists(self):
         linked = LinkedList(
             head=Node(data=10)
